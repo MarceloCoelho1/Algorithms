@@ -1,5 +1,5 @@
-package binarySearch.java;
-public class Java {
+package binarySearch;
+public class BinarySearch {
 
     public static int search(int key, int a[]) {
         return search(key, a, 0, a.length - 1);
