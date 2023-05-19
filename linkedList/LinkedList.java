@@ -2,6 +2,7 @@ package linkedList;
 
 public class LinkedList<T> {
     Node<T> first;
+    Node<T> last;
 
     public LinkedList () {
         this.first = null;
@@ -12,6 +13,10 @@ public class LinkedList<T> {
         newNode.next = first;
         first = newNode;
 
+        if(last == null) {
+            last = newNode;
+        }
+
     }
 
     public void removeFromBegin() {
@@ -20,6 +25,8 @@ public class LinkedList<T> {
         }
         first = first.next;
     }
+
+   
 
 
 }
