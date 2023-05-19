@@ -43,6 +43,36 @@ public class LinkedList<T> {
         last = newNode;
     }
 
+    public void remove(T element) {
+        if(first == null) return;
+
+        if(first.data.equals(element)) {
+            first = first.next;
+
+            if(first == null) {                
+                last = null;
+            }
+            return;
+        }
+
+
+        Node<T> currentNode = first;
+        Node<T> previous = null;
+
+        while(currentNode != null && !currentNode.data.equals(element)) {
+            previous = currentNode;
+            currentNode = currentNode.next;
+        }
+
+        if(currentNode != null) {
+            previous.next = currentNode.next;
+
+            if(currentNode == last) {
+                last = previous;
+            }
+        }
+    }
+
     public void print() {
         Node<T> current = first;
         while (current != null) {
@@ -52,6 +82,18 @@ public class LinkedList<T> {
         System.out.println();
     }
 
+    
 
+    public static void main(String[] args) {
+        LinkedList<Integer> l1 = new LinkedList<>();
+
+        l1.insertAtBegin(10);
+        l1.insertAtBegin(20);
+        l1.insertAtBegin(30);
+        l1.insertAtBegin(40);
+        l1.insertAtBegin(50);
+
+        l1.remove(30);
+    }
 
 }
