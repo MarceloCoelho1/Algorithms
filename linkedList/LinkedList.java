@@ -23,14 +23,41 @@ public class LinkedList<T> {
         if (first == null) {
             return;
         }
-
         first = first.next;
-        if (first == null) {
+        if(first == null) {
             last = null;
         }
+   
     }
 
-    
+    public void insertAtEnd(T element) {
+        Node<T> newNode = new Node<>(element);
+
+        if(first == null) { 
+            first = newNode;
+            last = newNode;
+            return;
+        }
+
+        last.next = newNode;
+        last = newNode;
+
+
+    }
+
+    public static void main(String[] args) {
+        LinkedList<Integer> l1 = new LinkedList<>();
+
+        l1.insertAtEnd(10);
+        l1.insertAtEnd(20);
+        l1.insertAtEnd(30);
+        l1.insertAtEnd(40);
+        l1.insertAtEnd(0);
+
+        l1.insertAtBegin(5);
+
+       
+    }
 
 
 }
