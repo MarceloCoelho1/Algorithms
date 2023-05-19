@@ -8,6 +8,7 @@ public class LinkedList<T> {
         this.first = null;
     }
 
+
     public void insertAtBegin(T element) {
         Node<T> newNode = new Node<T>(element);
         newNode.next = first;
@@ -41,6 +42,28 @@ public class LinkedList<T> {
 
         last.next = newNode;
         last = newNode;
+    }
+
+    public void removeFromEnd() {
+        if(first == null) return;
+        if(first == last) {
+            first = null;
+            last = null;
+            return;
+        }
+
+        Node<T> currentNode = first;
+        Node<T> previous = null;
+
+        while( currentNode != last ) {
+            previous = currentNode;
+            currentNode = currentNode.next;
+        }
+
+        if(currentNode != null) {
+            previous.next = null;
+            last = previous;
+        }
     }
 
     public void remove(T element) {
@@ -82,18 +105,5 @@ public class LinkedList<T> {
         System.out.println();
     }
 
-    
-
-    public static void main(String[] args) {
-        LinkedList<Integer> l1 = new LinkedList<>();
-
-        l1.insertAtBegin(10);
-        l1.insertAtBegin(20);
-        l1.insertAtBegin(30);
-        l1.insertAtBegin(40);
-        l1.insertAtBegin(50);
-
-        l1.remove(30);
-    }
 
 }
