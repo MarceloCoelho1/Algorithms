@@ -20,13 +20,17 @@ public class LinkedList<T> {
     }
 
     public void removeFromBegin() {
-        if(first == null) {
+        if (first == null) {
             return;
         }
+
         first = first.next;
+        if (first == null) {
+            last = null;
+        }
     }
 
-   
+    
 
 
 }
