@@ -45,19 +45,5 @@ public class LinkedList<T> {
 
     }
 
-    public static void main(String[] args) {
-        LinkedList<Integer> l1 = new LinkedList<>();
-
-        l1.insertAtEnd(10);
-        l1.insertAtEnd(20);
-        l1.insertAtEnd(30);
-        l1.insertAtEnd(40);
-        l1.insertAtEnd(0);
-
-        l1.insertAtBegin(5);
-
-       
-    }
-
 
 }
