@@ -14,4 +14,17 @@ public class LinkedList<T> {
 
     }
 
+    public void removeFromBegin() {
+        
+        first = first.next;
+    }
+
+    public static void main(String[] args) {
+        LinkedList<Integer> l1 = new LinkedList<>();
+
+        
+
+        l1.removeFromBegin();
+    }
+
 }
