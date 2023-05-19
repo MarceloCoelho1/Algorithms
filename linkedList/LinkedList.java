@@ -41,9 +41,17 @@ public class LinkedList<T> {
 
         last.next = newNode;
         last = newNode;
-
-
     }
+
+    public void print() {
+        Node<T> current = first;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
 
 
 }
