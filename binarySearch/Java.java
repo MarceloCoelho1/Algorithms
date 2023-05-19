@@ -1,8 +1,6 @@
 package binarySearch;
 
-public class BinarySearch {
-
-    public BinarySearch() {}
+public class Java {
     
     public static int search(int key, int a[]) {
         return search(key, a, 0, a.length-1);
