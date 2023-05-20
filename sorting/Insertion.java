@@ -20,4 +20,10 @@ public class Insertion {
         a[i] = a[j];
         a[j] = t;
     }
+
+    private static <T extends Comparable<T>> void show(T[] a) {
+        for (int i = 0; i < a.length; i++)
+            System.out.print(a[i] + " ");
+        System.out.println();
+    }
 }
