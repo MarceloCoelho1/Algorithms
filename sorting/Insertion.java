@@ -20,11 +20,4 @@ public class Insertion {
         a[i] = a[j];
         a[j] = t;
     }
-
-    public static void main(String[] args) {
-        Integer []numbers = {2, 3, 4, 6, 9, 1};
-
-        Insertion.sort(numbers);
-    
-    }
 }
