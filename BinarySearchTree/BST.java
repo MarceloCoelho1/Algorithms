@@ -22,13 +22,19 @@ public class BST {
         return node;
     }
 
-    public static void main(String[] args) {
-        BST bst = new BST();
-
-        bst.put(50);
-        bst.put(40);
-        bst.put(60);
-        bst.put(30);
-        bst.put(70);
+    public int depth() {
+        return depth(root) - 1;
     }
+
+    private int depth(Node node) {
+        if (node == null)
+            return 0;
+
+        int leftHeight = depth(node.left);
+        int rightHeight = depth(node.right);
+
+        return 1 + Math.max(leftHeight, rightHeight);
+
+    }
+
 }
