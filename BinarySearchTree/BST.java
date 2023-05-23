@@ -37,4 +37,26 @@ public class BST {
 
     }
 
+    public Integer get(Integer key) {
+        return get(key, this.root);
+    }
+
+    private Integer get(Integer key, Node node) {
+        if (node == null) {
+            return null;
+        }
+
+        if (key == null) {
+            throw new IllegalArgumentException("Null key");
+        }
+
+        if (key > node.key) {
+            return get(key, node.right);
+        } else if (key < node.key) {
+            return get(key, node.left);
+        } else {
+            return node.key;
+        }
+    }
+
 }
