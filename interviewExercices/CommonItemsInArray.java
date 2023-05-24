@@ -1,5 +1,7 @@
 package interviewExercices;
 
+import java.util.HashSet;
+import java.util.Set;
 
 public class CommonItemsInArray {
     /*
@@ -17,7 +19,19 @@ public class CommonItemsInArray {
      * 3: Good space complexity
      */
 
-    public static boolean commonItemsInArray(String[] vector1, String[] vector2) {
+    public static boolean commonItemsInArray(char[] vector1, char[] vector2) {
+        Set<Character> set = new HashSet<>();
+
+        
+        for (char item : vector1) {
+            set.add(item);
+        }
+
+        for (char item : vector2) {
+            if (set.contains(item)) {
+                return true;
+            }
+        }
 
         return false;
     }
