@@ -9,10 +9,15 @@ public class StackWithLinkedlist {
         this.length = -1;
     }
 
-    public void peek(){}
+    public Integer peek(){
+        if(isEmpty()) {
+            return null;
+        }
+        return top.value;
+    }
 
     public void push(Integer value){
-        if(length == -1) {
+        if(isEmpty()) {
             Node newNode = new Node(value);
             bottom = newNode;
             top = newNode;
@@ -25,9 +30,18 @@ public class StackWithLinkedlist {
     }
 
 
-    public void pop(){}
+    public boolean pop(){
+        if(isEmpty()) {
+            return false;
+        }
+
+        length--;
+        top = top.next;
+        return true;
+
+    }
 
     public boolean isEmpty(){
-        return true;
+        return length == -1;
     }
 }
