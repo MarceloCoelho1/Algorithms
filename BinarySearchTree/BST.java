@@ -59,83 +59,46 @@ public class BST {
         }
     }
 
-    public boolean remove(Integer key) {
-        return remove(key, this.root, null);
+    public Node removeWithRecursion(Integer key) {
+        return removeWithRecursion(key, root);
     }
+    private Node removeWithRecursion(Integer key, Node node) {
+        if(node == null) return null;
+        if(key > node.key) {
+            return removeWithRecursion(key, node.right);
+        } else if( key < node.key) {
+            return removeWithRecursion(key, node.left);
+        } else {
+            
+            if (node.right == null && node.left == null) { // If it is leaf node
+                node = null;
 
-    private boolean remove(Integer key, Node node, Node parentNode) {
-        if (node == null) {
-            return false;
+            } else if (node.left == null) { // If only right node is present
+                Node temp = node.right;
+                node.right = null;
+                node = temp;
+            } else if (node.right == null) { // Only left node is present
+                Node temp = node.left;
+                node.left = null;
+                node = temp;
+            } else { // both children are present
+                Node temp = node.right;
+
+                // Find leftmost child of right subtree
+                temp = min(node.right);
+                node.key = temp.key;
+                node.right = removeWithRecursion(temp.key, node.right);
+            }
+        }
+        return node;
+            
         }
 
-        if (key < node.key) {
-            parentNode = node;
-            node = node.left;
-
-            return remove(key, node, parentNode);
-        } else if (key > node.key) {
-            parentNode = node;
-            node = node.right;
-
-            return remove(key, node, parentNode);
-        } else if (node.key == key) {
-
-            if (node.right == null) {
-                if (parentNode == null) {
-                    this.root = node.left;
-                } else {
-
-                    if (node.key < parentNode.key) {
-                        parentNode.left = node.left;
-                    } else if (node.key > parentNode.key) {
-                        parentNode.right = node.left;
-                    }
-                }
-            } else if (node.right.left == null) {
-                node.right.left = node.left;
-                if (parentNode == null) {
-                    this.root = node.right;
-                } else {
-
-                    // if parent > current, make right child of the left the parent
-                    if (node.key < parentNode.key) {
-                        parentNode.left = node.right;
-
-                        // if parent < current, make right child a right child of the parent
-                    } else if (node.key > parentNode.key) {
-                        parentNode.right = node.right;
-                    }
-                }
-
-            } else {
-
-                //find the Right child's left most child
-                Node leftmost = node.right.left;
-                Node leftmostParent = node.right;
-                while(leftmost.left != null) {
-                  leftmostParent = leftmost;
-                  leftmost = leftmost.left;
-                }
-                
-                //Parent's left subtree is now leftmost's right subtree
-                leftmostParent.left = leftmost.right;
-                leftmost.left = node.left;
-                leftmost.right = node.right;
-      
-                if(parentNode == null) {
-                  this.root = leftmost;
-                } else {
-                  if(node.key < parentNode.key) {
-                    parentNode.left = leftmost;
-                  } else if(node.key > parentNode.key) {
-                    parentNode.right = leftmost;
-                  }
-                }
-              }
-            return true;
+    private Node min(Node node) {
+        if(node.left == null) {
+            return node;
         }
 
-        return false;
+        return min(node.left);
     }
-
 }
