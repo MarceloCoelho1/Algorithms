@@ -57,4 +57,28 @@ class LinkedList:
             self.tail = previous
 
 
+    def remove(self, val):
+        if self.head == None: return
 
+        if self.head.val == val:
+            self.head = self.head.next
+
+            if self.head == None:
+                self.tail = None
+
+            return
+        
+        current_node = self.head
+        previous = Node(0)
+
+        while( current_node != None and current_node.val != val ):
+            previous = current_node
+            current_node = current_node.next
+            
+        if current_node != None:
+            previous.next = current_node.next
+
+            if current_node == self.tail:
+                self.tail = previous
+            
+        
