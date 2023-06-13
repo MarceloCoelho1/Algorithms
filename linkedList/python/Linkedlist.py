@@ -35,5 +35,26 @@ class LinkedList:
         self.tail.next = node
         self.tail = node
 
+    def removeFromEnd(self):
+        if self.head == None: return
+
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+            return
         
+        current_node = self.head
+        previous = Node(0)
+
+        while( current_node != self.tail ):
+            previous = current_node
+            current_node = current_node.next
+            
+        
+
+        if(current_node != None):
+            previous.next = None
+            self.tail = previous
+
+
 
