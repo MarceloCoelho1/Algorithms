@@ -14,11 +14,16 @@ class LinkedList:
         if(self.tail == None):
             self.tail = node
 
-    
+    def removeFromBegin(self):
+        if self.head == None: return
+
+        self.head = self.head.next
+        if self.head == None: 
+            self.tail = None
+            return
 
 
 
 
-        
         
 
