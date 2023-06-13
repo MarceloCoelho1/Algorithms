@@ -23,7 +23,17 @@ class LinkedList:
             return
 
 
+    def insertAtEnd(self, value):
+        node = Node(value)
 
+        if self.head == None: 
+            self.head = node
+            self.tail = node
+            return
+        
+
+        self.tail.next = node
+        self.tail = node
 
         
 
