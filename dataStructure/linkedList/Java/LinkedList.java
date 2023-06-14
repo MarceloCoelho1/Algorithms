@@ -1,4 +1,4 @@
-package linkedList;
+package linkedList.Java;
 
 public class LinkedList<T> {
     Node<T> first;

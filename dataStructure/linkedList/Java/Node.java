@@ -1,4 +1,6 @@
-package linkedList;
+package linkedList.Java;
+
+
 
 public class Node<T> {
     T data;
