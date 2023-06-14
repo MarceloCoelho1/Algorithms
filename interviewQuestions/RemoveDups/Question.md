@@ -27,7 +27,7 @@ def removeDuplicates(self, current_node=None, compare_node=None, previous_node=N
         if compare_node.next == None:
             self.tail = previous_node
 
-        self.removeDuplicates()
+        self.removeDuplicates(current_node.next)
 
     if current_node.val != compare_node.val:
         if compare_node.next == None:
