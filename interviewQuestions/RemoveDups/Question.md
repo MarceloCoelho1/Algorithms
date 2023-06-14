@@ -39,6 +39,9 @@ def removeDuplicates(self, current_node=None, compare_node=None, previous_node=N
             previous_node = compare_node
             compare_node = compare_node.next
             self.removeDuplicates(current_node, compare_node, previous_node, 1)
+```
+## the complexity analysis
+
 
 The complexity analysis of the provided code can be broken down as follows:
 
