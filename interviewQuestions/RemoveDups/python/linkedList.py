@@ -19,7 +19,9 @@ class LinkedList:
     # remove duplicates values with recursion
     def removeDuplicates(self, current_node=None, compare_node=None, previous_node=None,identifier=0):
         if identifier == 0:
-            current_node = self.head
+            if(current_node == None):
+                current_node = self.head
+
             compare_node = current_node.next
             previous_node = Node(None)
 
@@ -32,7 +34,7 @@ class LinkedList:
             if compare_node.next == None:
                 self.tail = previous_node
             
-            self.removeDuplicates()
+            self.removeDuplicates(current_node.next)
 
             
 
