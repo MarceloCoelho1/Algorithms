@@ -51,9 +51,6 @@ class LinkedList:
                 self.removeDuplicates(current_node, compare_node, previous_node, 1)
 
 
-
-                
-    
     def print(self):
 
         current_node = self.head
@@ -61,9 +58,6 @@ class LinkedList:
         while current_node != None:
             print(current_node.val)
             current_node = current_node.next
-
-
-
 
 
 #code for test
