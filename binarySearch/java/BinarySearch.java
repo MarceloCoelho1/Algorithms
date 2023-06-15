@@ -8,6 +8,7 @@ public class BinarySearch {
     private static int search(int key, int a[], int lo, int hi) {
         if (lo > hi)
             return -1;
+            
         int mid = lo + (hi - lo) / 2;
 
         if (key < a[mid])
