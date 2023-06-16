@@ -39,6 +39,3 @@ Write code to sum two inversed linkedlist
 
 The time complexity of the recursive solution to add two linked lists in reverse order is O(max(N, M)), where N and M are the lengths of the two input lists. This is because we traverse through both lists simultaneously, visiting each node once. The maximum length between the two lists determines the number of recursive calls made.
 
-The space complexity of the recursive solution is also O(max(N, M)), as the recursion depth can reach the maximum length between the two lists. Each recursive call uses stack space to store variables and intermediate results until reaching the base case.
-
-Overall, the time and space complexity of the recursive solution is proportional to the maximum length between the two input lists.
