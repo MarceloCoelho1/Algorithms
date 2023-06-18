@@ -31,7 +31,7 @@ class LinkedList:
             if vector[first_pointer] != vector[last_pointer]:
                 return False
         
-            if first_pointer == last_pointer:
+            if last_pointer <= first_pointer:
                 return True
             
             first_pointer += 1
@@ -54,6 +54,7 @@ class LinkedList:
 list = LinkedList()
 
 list.add(1)
+list.add(0)
 list.add(0)
 list.add(1)
 
