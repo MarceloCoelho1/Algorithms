@@ -14,7 +14,6 @@ class QueueWithLinkedlist:
             self.last = node
             
         else:   
-            
             self.last.next = node
             self.last = node
             
