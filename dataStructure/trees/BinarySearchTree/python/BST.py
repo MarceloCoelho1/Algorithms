@@ -49,10 +49,35 @@ class BST:
         
         return 1 + max(self._depth_recursive(node.left), self._depth_recursive(node.right))
     
+    def remove(self, key):
+        self.root = self._remove_recursive(self.root, key)
 
-bst = BST()
-bst.put(10)
-bst.put(20)
-bst.put(30)
+    def _remove_recursive(self, node, key):
+        if node is None:
+            return None
 
-print(bst.depth())
+        if key < node.val:
+            node.left = self._remove_recursive(node.left, key)
+        elif key > node.val:
+            node.right = self._remove_recursive(node.right, key)
+        else:
+
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            
+
+            successor = self._find_minimum(node.right)
+            node.val = successor.val
+            node.right = self._remove_recursive(node.right, successor.val)
+        
+        return node
+
+    def _find_minimum(self, node):
+        if node.left is None:
+            return node
+        
+        return self._find_minimum(node.left)
+    
+
