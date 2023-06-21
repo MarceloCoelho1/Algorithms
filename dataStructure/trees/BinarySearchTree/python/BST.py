@@ -20,4 +20,21 @@ class BST:
         
         return node
         
+    def get(self, key):
+        return self._get_recursive(key, self.root)
+    
+    def _get_recursive(self, key, node):
         
+        if node is None:
+            return None
+        
+        if key is None:
+            return None
+        
+        
+        if key == node.val:
+            return True
+        elif key < node.val:
+            return self._get_recursive(key, node.left)
+        else:
+            return self._get_recursive(key, node.right)
