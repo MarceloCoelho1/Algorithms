@@ -38,3 +38,21 @@ class BST:
             return self._get_recursive(key, node.left)
         else:
             return self._get_recursive(key, node.right)
+
+    
+    def depth(self):
+        return self._depth_recursive(self.root) - 1
+    
+    def _depth_recursive(self, node):
+        if node is None:
+            return 0
+        
+        return 1 + max(self._depth_recursive(node.left), self._depth_recursive(node.right))
+    
+
+bst = BST()
+bst.put(10)
+bst.put(20)
+bst.put(30)
+
+print(bst.depth())
