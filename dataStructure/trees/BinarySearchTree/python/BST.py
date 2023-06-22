@@ -107,6 +107,18 @@ class BST:
         self._pre_order_recursive(node.right)
 
 
-    
+    def post_order(self):
+            self._post_order_recursive(self.root)
+
+    def _post_order_recursive(self, node):
+        if node is None:
+            return node
+        
+
+        self._post_order_recursive(node.left)
+        self._post_order_recursive(node.right)
+        print(node.val)
+        
+
     
 
