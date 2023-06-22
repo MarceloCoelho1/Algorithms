@@ -95,6 +95,18 @@ class BST:
         self._in_order_recursive(node.right)
 
 
+    def pre_order(self):
+            self._pre_order_recursive(self.root)
+
+    def _pre_order_recursive(self, node):
+        if node is None:
+            return node
+        
+        print(node.val)
+        self._pre_order_recursive(node.left)
+        self._pre_order_recursive(node.right)
+
+
     
     
 
