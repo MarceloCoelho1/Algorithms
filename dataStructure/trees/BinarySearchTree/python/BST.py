@@ -80,4 +80,21 @@ class BST:
         
         return self._find_minimum(node.left)
     
+    # binary Tree Transversal
+
+    def in_order(self):
+        self._in_order_recursive(self.root)
+
+
+    def _in_order_recursive(self, node):
+        if node is None:
+            return node
+        
+        self._in_order_recursive(node.left)
+        print(node.val)
+        self._in_order_recursive(node.right)
+
+
+    
+    
 
