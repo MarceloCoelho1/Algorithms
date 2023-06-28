@@ -29,6 +29,10 @@ class Graph:
         self.numberOfNodes = 0
         self.adjacentList = {}
 
+    def addVertex(self, node):
+        self.adjacentList[node] = []
+        self.numberOfNodes += 1
+
     
         
 
