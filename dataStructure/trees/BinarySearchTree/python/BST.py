@@ -118,7 +118,44 @@ class BST:
         self._post_order_recursive(node.left)
         self._post_order_recursive(node.right)
         print(node.val)
+
+    def BFS(self):
+        list = []
+        queue = [self.root]
+        return self._BFS_recursive(queue, list)
+
+    def _BFS_recursive(self, queue: list, list: list):
+        length = len(queue)
+
+        if not length:
+            return list
+        
+        current_node = queue.pop(0)
+        list.append(current_node.val)
+        if current_node.left:
+            queue.append(current_node.left)
+
+        if current_node.right:
+            queue.append(current_node.right)
+
+        return self._BFS_recursive(queue, list)
         
 
+        
+#code example for BFS
     
+bst = BST()
+
+bst.put(9)
+bst.put(4)
+bst.put(6)
+bst.put(20)
+bst.put(170)
+bst.put(15)
+bst.put(1)
+
+list = bst.BFS()
+
+print(list)
+
 
