@@ -60,16 +60,18 @@ public class BST {
     }
 
     public Node removeWithRecursion(Integer key) {
-        return removeWithRecursion(key, root);
+        return removeWithRecursion(key, this.root);
     }
+
     private Node removeWithRecursion(Integer key, Node node) {
-        if(node == null) return null;
-        if(key > node.key) {
+        if (node == null)
+            return null;
+        if (key > node.key) {
             return removeWithRecursion(key, node.right);
-        } else if( key < node.key) {
+        } else if (key < node.key) {
             return removeWithRecursion(key, node.left);
         } else {
-            
+
             if (node.right == null && node.left == null) { // If it is leaf node
                 node = null;
 
@@ -82,23 +84,37 @@ public class BST {
                 node.left = null;
                 node = temp;
             } else { // both children are present
-                Node temp = node.right;
-
+                // Node temp = node.right;
+                Node temp1 = node.left;
                 // Find leftmost child of right subtree
-                temp = min(node.right);
-                node.key = temp.key;
-                node.right = removeWithRecursion(temp.key, node.right);
+                temp1 = max(node.left);
+
+                node.key = temp1.key;
+                node.left = removeWithRecursion(temp1.key, node.left);
+
+                // temp = min(node.right);
+                // node.key = temp.key;  
+                // node.right = removeWithRecursion(temp.key, node.right);
             }
         }
         return node;
-            
-        }
+
+    }
 
     private Node min(Node node) {
-        if(node.left == null) {
+        if (node.left == null) {
             return node;
         }
 
         return min(node.left);
     }
+
+    private Node max(Node node) {
+        if(node.right == null) {
+            return node;
+        }
+        return max(node.right);
+    }
+
+ 
 }
